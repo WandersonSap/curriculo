@@ -3,7 +3,13 @@
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
-					<content></content>
+				<content>
+					<!--<Label text="Sistema" />
+						<Text text="{device>/os/name}" />
+						<Label text="Navegador" />
+						<Text text="{device>/browser/name}" />-->
+						<Text text="Você Esta usando o Sistema {device>/os/name} e o navegador {device>/browser/name} " />
+				</content>
 				</Page>
 			</pages>
 		</App>
