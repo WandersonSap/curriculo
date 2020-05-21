@@ -1,15 +1,37 @@
-<mvc:View controllerName="ovly.data.binding.curriculo.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="ovly.data.binding.curriculo.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
-				<content>
-					<!--<Label text="Sistema" />
-						<Text text="{device>/os/name}" />
-						<Label text="Navegador" />
-						<Text text="{device>/browser/name}" />-->
-						<Text text="Você Esta usando o Sistema {device>/os/name} e o navegador {device>/browser/name} " />
-				</content>
+					<content>
+						<Text text="Você Esta usando o Sistema {device>/os/name} e o navegador {device>/browser/name} "/>
+						<form:SimpleForm >
+							<form:content>
+								<core:Title text="Dados Pessoais"/>
+								<Label text="Nome"/>
+								<Text text="{/nome}"/>
+								<Label text="Sobrenome"/>
+								<Text text="{/sobrenome}"/>
+								<core:Title text="{i18n>adress}"/>
+								<Label text="Rua"/>
+								<Text text="{/endereco/rua/nome}, {/endereco/rua/numero}"/>
+								<Label text="Cidade"/>
+								<Text text="{/endereco/cidade}"/>
+								<Label text="Estado"/>
+								<Text text="{/endereco/estado/nome} - ( {/endereco/estado/sigla} ) "/>
+								<core:Title text="{i18n>quiz}"/>
+								<Label text="1"/>
+								<Slider min="0" max="100" value="{/quiz_1}" enabled="false"/>
+								<RatingIndicator maxValue="5" value="{/quiz_media}" enabled="false"/>
+							</form:content>
+						</form:SimpleForm>
+						<List items="{/competencias}">
+							<items>
+								<StandardListItem title="{}"/>
+							</items>
+						</List>
+					</content>
 				</Page>
 			</pages>
 		</App>
