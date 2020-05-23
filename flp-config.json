@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "ovly.data.binding.curriculo.curriculo",
+        "description": "curriculo",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#curriculo-Display",
+        "navigationComponentName": "ovly.data.binding.curriculo",
+        "intentSemanticObject": "curriculo",
+        "intentAction": "Display",
+        "html5ApplicationName": "curriculo",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "116945ed-f64a-421a-b9c8-2fec12095a5d"
+        ],
+        "contentPackages": [
+            "95705485-781c-4460-b4d1-eccf61f11420"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Curriculo",
+        "subtitle": "",
+        "searchKeywords": "Curriculo,",
+        "displayIconUrl": "sap-icon://curriculum",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

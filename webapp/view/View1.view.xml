@@ -1,5 +1,8 @@
-<mvc:View controllerName="ovly.data.binding.curriculo.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
-	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+<mvc:View controllerName="ovly.data.binding.curriculo.controller.View1" 
+xmlns:mvc="sap.ui.core.mvc" 
+displayBlock="true" 
+xmlns="sap.m"
+xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
@@ -12,7 +15,8 @@
 								<Label text="Nome"/>
 								<Text text="{/nome}"/>
 								<Label text="Sobrenome"/>
-								<Text text="{/sobrenome}"/>
+								<!--<Text text="{/sobrenome}"/>-->
+								<Text text="{path:'/sobrenome' , formatter: '.toUpper'}"/>
 								<core:Title text="{i18n>adress}"/>
 								<Label text="Rua"/>
 								<Text text="{/endereco/rua/nome}, {/endereco/rua/numero}"/>
@@ -26,11 +30,56 @@
 								<RatingIndicator maxValue="5" value="{/quiz_media}" enabled="false"/>
 							</form:content>
 						</form:SimpleForm>
-						<List items="{/competencias}">
-							<items>
-								<StandardListItem title="{}"/>
-							</items>
-						</List>
+						
+						<Panel id="panel_competencias" headerText="{path:'Competencias', model: 'i18n'}" expandable="true" expanded="false" >
+							<content>
+								<List items="{path:'/competencias'}">
+									<items>
+										<StandardListItem title="{ path : '' }"/>
+									</items>
+								</List>								
+							</content>
+						</Panel>
+						
+						<Panel id="panel_empresas" headerText="{path:'Empresas', model: 'i18n'}" expandable="true" expanded="false" >
+							<content>
+								<List items="{path:'/empresas'}">
+									<items>
+										<StandardListItem title="{nome}" description="{path:'cargo'}" />
+									</items>
+								</List>								
+							</content>
+						</Panel>
+						
+						<Panel headerText="{path:'GitHub', model: 'i18n'}" expandable="true" expanded="false" >
+							<content>
+								<Table id="table_github" items="{path: '/', model: 'github'}">
+									<columns>
+											<Column>
+												<Text text="{i18n>github_repo_name}" />
+											</Column>
+											<Column>
+												<Text text="{i18n>github_repo_description}" />
+											</Column>
+											<Column>
+												<Text text="{i18n>github_repo_url}" />
+											</Column>
+									</columns>
+									
+										<items>
+											<ColumnListItem>
+												<cells>
+													<Title text="{github>name}" />
+													<Text text="{github>description}" />
+													<Link text="Abrir repo" href="{github>html_url}" target="_blank"  />
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>	
+							</content>					
+						
+						</Panel>						
+
 					</content>
 				</Page>
 			</pages>
